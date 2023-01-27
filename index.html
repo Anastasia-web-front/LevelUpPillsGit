@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LevelUp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            $(".btn-menu").click(function () {
+            $(".header__mobile-nav").slideToggle("slow");
+            $(this).toggleClass("active");
+            return false;
+            });
+        });
+    </script>
+
+    <header id="Header">
+        <div class="header__wrapper">
+            <div class="header__nav">
+                <div class="header__nav-logo">
+                    <img src="source/logo.png" alt="LevelUp logo">
+                </div>
+                <div class="header__nav-menu" >
+                    <nav>
+                        <ul>
+                            <li><a href="#Header">Главная</a></li>
+                            <li><a href="#Components">Состав</a></li>
+                            <li><a href="#Comments">Отзывы</a></li>
+                            <li><a href="#About">О продукте</a></li>
+                            <li><a href="#Order">Заказать</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header__nav-btn">
+                    <a href="#" class="btn-menu">
+                        <img src="source/menu_icon.png" alt="menu">
+                    </a>
+                </div>
+            </div>
+            <div class="header__mobile-nav">
+                <nav>
+                    <ul>
+                        <li><a href="#Header">Главная</a></li>
+                        <li><a href="#Components">Состав</a></li>
+                        <li><a href="#Comments">Отзывы</a></li>
+                        <li><a href="#About">О продукте</a></li>
+                        <li><a href="#Order">Заказать</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header__content">
+                <div class="header__content-photo">
+                    <img class="element-animation-left" src="source/pills.png" alt="LevelUp pills">
+                </div>
+                <div class="header__content-text">
+                    <ul>
+                        <li class="element-animation-right">БЕЗ ПОБОЧНЫХ ЭФФЕКТОВ</li>
+                        <li class="element-animation-right">НАКОПИТЕЛЬНЫЙ ЭФФЕКТ</li>
+                        <li class="element-animation-right">1 УПАКОВКА НА 1 КУРС</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="header__button ">
+                <button class="btn">Заказать</button>
+            </div>
+        </div>
+        <video src="source/Pexels Videos 2334654.mp4" class="header__video" autoplay loop muted></video>
+    </header>
+    <main>
+        <section id="Components">
+            <div class="components__wrapper">
+                <div class="components__plants element-animation-left">
+                    <div class="components__plants-plant">
+                        <img src="source/ginseng.jpg" alt="ginseng">
+                        <span class="plant-text">ЖЕНЬШЕНЬ СИБИРСКИЙ</span>
+                    </div>
+                    <div class="components__plants-plant">
+                        <img src="source/karissa.jpg" alt="karissa">
+                        <span class="plant-text">КОРНИ КАРИССЫ СЪЕДОБНОЙ</span>
+                    </div>
+                    <div class="components__plants-plant">
+                        <img src="source/virosa.jpg" alt="virosa">
+                        <span class="plant-text">СЕКУРИНЕГА ВИРОЗА</span>
+                    </div>
+                </div>
+                <div class="components__content">
+                    <div class="components__content-pills">
+                        <img src="source/pills.png" alt="LevelUp pills">
+                    </div>
+                    <div class="components__content-button">
+                        <button class="btn">Заказать</button>
+                    </div>
+                </div>
+                <div class="components__plants element-animation-right">
+                    <div class="components__plants-plant">
+                        <img src="source/velvichiya.jpg" alt="velvichiya">
+                        <span class="plant-text">ТРИУМФЕТТА ВЕЛЬВИЧА</span>
+                    </div>
+                    <div class="components__plants-plant">
+                        <img src="source/geeria.jpg" alt="geeria">
+                        <span class="plant-text">ГЕЕРИЯ СЕТЧАТАЯ</span>
+                    </div>
+                    <div class="components__plants-plant">
+                        <img src="source/heteromorph.jpg" alt="heteromorph">
+                        <span class="plant-text">ГЕТЕРОМОРФА ДРЕВОВИДНАЯ</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- <section id="Comments">
+            <div class="comments__wrapper">
+                <div class="comments__slides">
+                    <div class="comments__slides-slide">
+                        <div class="slide-photo">
+                            <img src="/source/man1.jpg" alt="man">
+                        </div>
+                        <div class="slide-text">
+                            <h2>михайлов савва</h2>
+                            <p>удобный способ приема, доступная цена</p>
+                        </div>
+                    </div>
+                    <div class="comments__slides-slide">
+                        <div class="comments__slides-slide">
+                            <div class="slide-photo">
+                                <img src="/source/man2.jpg" alt="man">
+                            </div>
+                            <div class="slide-text">
+                                <h2>ермолаев олег</h2>
+                                <p>высокая эффективность, длительность действия</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comments__slides-slide">
+                        <div class="comments__slides-slide">
+                            <div class="slide-photo">
+                                <img src="/source/man3.jpg" alt="man">
+                            </div>
+                            <div class="slide-text">
+                                <h2>авдеев кирилл</h2>
+                                <p>растительный состав, комплексное действие.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comments__buttons">
+                    <div class="comments__button"></div>
+                    <div class="comments__button"></div>
+                    <div class="comments__button"></div>
+                </div>
+            </div>
+        </section> -->
+        <section id="About">
+            <div class="about__wrapper">
+                <div class="about__doctor element-animation-left">
+                    <div class="about__doctor-photo">
+                        <img src="source/doctor.png" alt="doctor">
+                    </div>
+                    <div class="about__doctor-text">
+                        <p>ПРЕПАРАТ СТИМУЛИРУЕТ РАБОТУ ЦЕНТРАЛЬНОЙ НЕРВНОЙ СИСТЕМЫ, ВЫЗЫВАЕТ РАСШИРЕНИЕ ГЕНИТАЛЬНЫХ АРТЕРИЙ И УЛУЧШАЕТ КРОВОСНАБЖЕНИЕ ОРГАНОВ МАЛОГО ТАЗА, ПОВЫШАЕТ ПОЛОВУЮ ФУНКЦИЮ.</p>
+                        <p>LEVELUP ГОРАЗДО АКТИВНЕЕ СВОИХ АНАЛОГОВ. ДЕЙСТВИЕ ПРЕПАРАТА НАЧИНАЕТСЯ УЖЕ ЧЕРЕЗ 15 МИНУТ ПОСЛЕ ПРИЕМА ПРЕПАРАТА И ПРОДОЛЖАЕТСЯ В ТЕЧЕНИЕ 36 ЧАСОВ. ПРАКТИЧЕСКИ НЕ ИМЕЕТ ПРОТИВОПОКАЗАНИЙ.</p>
+                    </div>
+                </div>
+                <div class="about__list element-animation-right">
+                    <ul>
+                        <li>ДОСТУПНАЯ ЦЕНА</li>
+                        <li>ЭФФЕКТИВНОСТЬ</li>
+                        <li>ПОЛНОСТЬЮ РАСТИТЕЛЬНЫЙ СОСТАВ</li>
+                    </ul>
+                </div>
+                <div class="about__button">
+                    <button class="btn">Заказать</button>
+                </div>
+            </div>
+        </section>
+        <section id="Order">
+            <div class="order__wrapper">
+                <div class="order__top">
+                    <div class="order__top-logo">
+                        <img src="source/profile.png" alt="LevelUp">
+                    </div>
+                    <div class="order__top-timer" id="timer">
+                        <div class="timer-number">
+                            <span class="minutes time"></span>
+                        </div>
+                        <span class="colon"> : </span>
+                        <div class="timer-number">
+                            <span class="seconds time"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="order__center">
+                    <div class="order__left">
+                        <div class="order__left-pills">
+                            <img src="source/pills.png" alt="LevelUp pills">
+                        </div>
+                        <div class="order__left-price">
+                            <div class="price-crossed-out">
+                                <h3>1190 &#8381</h3>
+                            </div>
+                            <div class="price-real">
+                                <h3>899 &#8381</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order__right">
+                        <div class="order__right-form">
+                            <form id="orderForm">
+                                <label for="name">Ваше имя</label>
+                            </br>
+                                <input type="text" id="name">
+                            </br>
+                            <label for="telNo">Ваш номер телефона (в формате 9xx-xxx-xxxx): </label>
+                            </br> 
+                                <input id="telNo" name="telNo" type="tel" required pattern="[9]{3}-[0-9]{3}-[0-9]{4}">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="order__bottom">
+                    <button class="btn">Заказать</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
