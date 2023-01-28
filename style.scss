@@ -371,6 +371,13 @@ header{
                     }
                 }
             }
+            .header__button{
+                button{
+                    width: 21vw;
+                    height: 6vw;
+                    font-size: 2vw;
+                }
+            }
         }
     }
 }
@@ -508,91 +515,128 @@ header{
 
 // ---------------------------------------------------//
 
-.comments__wrapper{
-    margin-top: 20vw;
+@mixin circle($i) {
+    border-radius: 100%;
+    height: $i;
+    width: $i;
+  }
+  
+  $bg: #3f52529c;
+  $card: #3d454d;
+  
+  .comments__wrapper {
+    display: flex;
+    grid-gap: 1em;
+    overflow: hidden;
     width: 100%;
-    padding: 0 10vw;
-    .comments__slides{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        .comments__slides-slide{
-            background-color: #909294;
-            width: 40vw;
-            border-radius: 5px;
-            .slide-photo{
-                img{
-                    border-radius: 5px 5px 0 0;
-                    width: 100%;
-                }
-            }
-            .slide-text{
-                padding: 0 2vw;
-                p{
-                    margin-bottom: 1vw;
-                }
-            }
+    padding: 0 4vw;
+    & > .inner {
+      display: flex;
+      grid-gap: 2em;
+      transition: all 1s ease-in-out;
+    }
+  }
+  
+  .card {
+    border-radius: 0.5em;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    width: 17.5em;
+    & > img {
+      border-top-right-radius: inherit;
+      border-top-left-radius: inherit;
+      display: block;
+      width: 100%;
+    }
+  
+    & > .content {
+        background: $card;
+        border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+        padding: 1em;
+        text-align: center;
+        height: 12em;
+        letter-spacing: 0.3vw;
+        line-height: 1.5;
+        & > h1,
+        & > h3 {
+            margin: 0.35em 0;
+        }
+  
+        & > h1 {
+            color: #fff;
+            font-size: 2vw;
+            margin-bottom: 0.6em;
+        }
+  
+        & > h3 {
+            color: #ccc;
+            font-size: 1.5vw;
+            font-weight: 300;
         }
     }
-    .comments__buttons{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 4vw 0;
-        .comments__button{
-            width: 3vw;
-            height: 3vw;
-            background-color: rgb(47, 48, 45);
-            border-radius: 50%;
-            margin: 0 0.2vw;
+  }
+  
+  .map {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    & > button {
+      all: unset;
+      background: lighten($card, 10);
+      cursor: pointer;
+      margin: 0 0.125em;
+      position: relative;
+      user-select: none;
+      @include circle(1em);
+  
+      &.active {
+        &:after {
+          background: $bg;
+          content: "";
+          left: 50%;
+          position: absolute;
+          transform: translate(-50%, -50%);
+          top: 50%;
+          @include circle(0.5em);
         }
+      }
     }
-}
+  }
+  
 
 @media (min-width:800px) {
-    
-.comments__wrapper{
-    .comments__slides{
-        .comments__slides-slide{
-            width: 20vw;
-            border-radius: 25px;
-            .slide-photo{
-                max-width: 20vw;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                img{
-                    border-radius: 25px 25px 0 0;
-                }
-            }
-            .slide-text{
-                height: 12vw;
-                text-align: center;
-                letter-spacing: 0.3vw;
-                h2{
-                    font-size: 1.5vw;
-                    padding: 2vw 0;
-                }
-                p{
-                    font-size: 1vw;
-                    line-height: 1.2vw;
-                }
-            }
+    .content{
+        height: 6em;
+        & > h1 {
+            font-size: 1vw;
+        }
+        & > h3 {
+            font-size: 0.8vw;
         }
     }
-    .comments__buttons{
-        .comments__button{
-            width: 1.5vw;
-            height: 1.5vw;
-        }
+     
+  .card {
+    border-radius: 0.5em;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    width: 12em;
+    & > .content {
+      height: 6em;
+      & > h1 {
+        font-size: 1.2vw;
+      }
+  
+      & > h3 {
+        font-size: 0.8vw;
+      }
     }
+  }
 }
-}
+
+
 // --------------------------------------------------//
 
 .about__wrapper{
-    margin: 20vw 0;
+    margin: 15vw 0;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -775,16 +819,15 @@ header{
 }
 
 .order__wrapper{
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     .order__top{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         .order__top-logo{
-            width: 60vw;
+            max-width: 60vw;
+            min-width: 40vw;
             img{
-                max-width: 100%;
+               width: 100%;
             }
         }
         .order__top-timer{
@@ -793,7 +836,6 @@ header{
             font-weight: 700;
             text-align: center;
             text-transform: uppercase;
-            margin-left: 7vw;
             .timer-number{
                 width: 20vw;
                 height: 20vw;
@@ -820,76 +862,24 @@ header{
             }
         }
     }
-    .order__left{
-        .order__left-pills{
-            margin: 10vw 0;
-            width: 30vw;
-            img{
-                width: 100%;
-            }
-        }
-        .order__left-price{
-            margin: 5vw 0;
-            .price-crossed-out{
-                h3{
-                    font-size: 6vw;
-                    text-decoration: line-through;
-                }
-            }
-            .price-real{
-                h3{
-                    font-size: 15vw;
-                    color: rgb(19, 1, 1);
-                    text-shadow: 1px 1px 2px rgb(247, 235, 235);
-                    animation-name: price;
-                    animation-duration: 4s;
-                    animation-timing-function: ease;
-                    animation-delay: 1s;
-                    animation-iteration-count: infinite;
-                }
-            }
-        }
-    }
-    .order__right{
-        text-align: center;
-        .order__right-form{
-            form{
-                label{
-                    font-size: 4vw;
-                }
-                input{
-                    height: 10vw;
-                    width: 70vw;
-                    border-radius: 5px;
-                    background-color: #ebeeee9d;
-                    padding: 0.5vw 2vw;
-                    font-size: 5vw;
-                    margin: 4vw 0;
-                }
-            }
-        }
-    }
-    .order__bottom{
-        margin: 5vw 0;
-    }
-}
-
-
-@media (min-width:600px) {
-    .order__wrapper{
-        margin: 0 auto;
+    .order__center{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         .order__left{
             .order__left-pills{
                 margin: 10vw 0;
-                width: 30vw;
+                width: 40vw;
                 img{
                     width: 100%;
                 }
             }
             .order__left-price{
                 margin: 5vw 0;
+                text-align: center;
                 .price-crossed-out{
                     h3{
+                        text-align: center;
                         font-size: 6vw;
                         text-decoration: line-through;
                     }
@@ -908,30 +898,218 @@ header{
                 }
             }
         }
-        .order__right{
-            text-align: center;
-            .order__right-form{
-                form{
-                    label{
-                        font-size: 4vw;
+    }
+    .order__right{
+        text-align: center;
+        .order__right-form{
+            form{
+                label{
+                    font-size: 5vw;
+                }
+                input{
+                    height: 15vw;
+                    width: 80vw;
+                    border-radius: 5px;
+                    background-color: #ebeeee9d;
+                    padding: 0.5vw 2vw;
+                    font-size: 5vw;
+                    margin: 4vw 0;
+                }
+            }
+        }
+    }
+    .order__bottom{
+        display: flex;
+        justify-content: center;
+        margin: 5vw 0;
+    }
+}
+
+@media (min-width:600px) {
+    .order__wrapper{
+        .order__top{
+            .order__top-logo{
+                max-width: 50vw;
+            }
+            .order__top-timer{
+                .timer-number{
+                    width: 19vw;
+                    height: 19vw;
+                    .time{
+                        width: 19vw;
+                        height: 19vw;
                     }
-                    input{
-                        height: 10vw;
-                        width: 70vw;
-                        border-radius: 5px;
-                        background-color: #ebeeee9d;
-                        padding: 0.5vw 2vw;
-                        font-size: 5vw;
-                        margin: 4vw 0;
+                }
+            }
+        }
+        .order__center{
+            .order__left{
+                .order__left-pills{
+                    width: 30vw;
+                    margin-left: 10vw;
+                }
+            }
+            .order__right{
+                .order__right-form{
+                    form{
+                        label{
+                            font-size: 4vw;
+                        }
+                        input{
+                            height: 10vw;
+                            width: 70vw;
+                            border-radius: 5px;
+                            background-color: #ebeeee9d;
+                            padding: 0.5vw 2vw;
+                            font-size: 5vw;
+                            margin: 4vw 0
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width:800px) {
+    .order__wrapper{
+        position: relative;
+        .order__top{
+            .order__top-logo{
+                max-width: 50vw;
+            }
+            .order__top-timer{
+                .timer-number{
+                    width: 17vw;
+                    height: 17vw;
+                    padding-top: 2.5vw;
+                    .time{
+                        width: 17vw;
+                        height: 17vw;
+                    }
+                }
+            }
+        }
+        .order__center{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            .order__left{
+                margin-left: 5vw;
+                .order__left-pills{
+                    width: 26vw;
+                }
+                .order__left-price{
+                    margin:0;
+                    .price-crossed-out{
+                        h3{
+                            font-size: 4vw;
+                        }
+                    }
+                    .price-real{
+                        h3{
+                            font-size: 7vw;
+                        }
+                    }
+                }
+            }
+            .order__right{
+                .order__right-form{
+                    form{
+                        label{
+                            font-size: 3vw;
+                        }
+                        input{
+                            height: 6vw;
+                            width: 45vw;
+                            font-size: 5vw;
+                        }
                     }
                 }
             }
         }
         .order__bottom{
-            margin: 5vw 0;
+            button{
+                position: absolute;
+                bottom: 5vw;
+                right: 25vw;
+            }
         }
     }
 }
 
+
+@media (min-width:1100px) {
+    .order__wrapper{
+        .order__top{
+            .order__top-logo{
+                max-width: 40vw;
+            }
+            .order__top-timer{
+                .timer-number{
+                    width: 13vw;
+                    height: 13vw;
+                    padding-top: 3vw;
+                    .time{
+                        width: 13vw;
+                        height: 13vw;
+                        font-size: 7vw;
+                    }
+                }
+            }
+        }
+        .order__center{
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0 8vw;
+            .order__left{
+                margin-left: 5vw;
+                .order__left-pills{
+                    width: 15vw;
+                   margin-bottom: 4vw;
+                }
+                .order__left-price{
+                    .price-crossed-out{
+                        h3{
+                            font-size: 2vw;
+                        }
+                    }
+                    .price-real{
+                        h3{
+                            font-size: 4vw;
+                        }
+                    }
+                }
+            }
+            .order__right{
+                .order__right-form{
+                    width: 50vw;
+                    form{
+                        label{
+                            font-size: 1.7vw;
+                            letter-spacing: 0.2vw;
+                        }
+                        input{
+                            margin: 1vw 0;
+                            height: 3vw;
+                            width: 30vw;
+                            font-size: 3vw;
+                        }
+                        #name{
+                            margin-bottom: 3.5vw;
+                        }
+                    }
+                }
+            }
+        }
+        .order__bottom{
+            button{
+                bottom: 3vw;
+                right: 22vw;
+            }
+        }
+    }
+}
 
 // --------------------------------------------------//
